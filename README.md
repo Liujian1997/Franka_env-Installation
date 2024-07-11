@@ -98,7 +98,7 @@ git clone --recursive https://github.com/frankaemika/libfranka --branch 0.8.0 # 
 cd libfranka
 ```
 
-默认情况下，这将检出最新版本的 libfranka. 如果要构建特定版本 libfranka，请查看相应的Git 标签：
+(非必须)默认情况下，这将检出最新版本的 libfranka. 如果要构建特定版本 libfranka，请查看相应的 Git 标签：
 
 ```bash
 git checkout <version>
@@ -124,7 +124,7 @@ git clone https://github.com/moveit/panda_moveit_config.git -b noetic-devel # Mo
 git clone https://github.com/m-tartari/realsense_gazebo_description.git # Camera
 git clone https://github.com/m-tartari/realsense_gazebo_plugin.git # Camera plugin
 ```
-默认情况下，这将检出最新版本的 franka_ros，如果要构建特定版本 franka_ros，请查看相应的 Git 标签：
+(非必须)默认情况下，这将检出最新版本的 franka_ros，如果要构建特定版本 franka_ros，请查看相应的 Git 标签：
 ```bash
 cd franka_ros
 git checkout <version>
