@@ -57,7 +57,7 @@ export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
 > sudo apt remove robotpkg-py3*-pinocchio
 > ```
 >
-> ![](img/Snipaste_2024-07-11_15-32-31.png)
+> ![image](img/Snipaste_2024-07-11_15-32-31.png)
 > 
 > 重新安装通过，会自动安装3.8
 >
