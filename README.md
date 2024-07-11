@@ -1,8 +1,8 @@
 # Franka环境配置
-以下环境配置均基于[ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
+以下环境配置均基于[ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)，机械臂基于[Franka Emika Panda](https://github.com/Liujian1997/Franka_env-Installation/Franka_Emika_Panda_Instruction_Handbook_CN.pdf)
 ## 版本兼容
 
-![](https://github.com/Liujian1997/Franka_env-Installation/blob/main/img/Snipaste_2024-07-11_12-21-44.png)
+![](https://github.com/Liujian1997/Franka_env-Installation/main/img/Snipaste_2024-07-11_12-21-44.png)
 
 ## 从源代码构建
 
@@ -14,10 +14,11 @@ sudo apt remove "*libfranka*"
 ## 构建libfranka
 
 要构建 libfranka，请从 Ubuntu 的包管理器安装以下依赖项：
+```bash
+sudo apt install build-essential cmake git libpoco-dev libeigen3-dev
+```
 
 然后，通过 libfranka 从 GitHub 克隆来下载源代码：
-
-对 Panda 型号需要克隆：
 
 ```bash
 git clone --recursive https://github.com/frankaemika/libfranka # only for panda
