@@ -4,7 +4,6 @@
   - [参考链接](#参考链接)
   - [Pinocchio安装](#pinocchio安装)
   - [版本兼容](#版本兼容)
-  - [从源代码构建](#从源代码构建)
   - [构建libfranka](#构建libfranka)
   - [构建ROS包和Moveit包](#构建ros包和moveit包)
   - [如需安装RT内核](#如需安装rt内核)
@@ -66,14 +65,11 @@ export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
 
 ![](img/Snipaste_2024-07-11_12-21-44.png)
 
-## 从源代码构建
-
+## 构建libfranka
 从源代码构建，请先卸载现有的之前（方法一）安装的 libfranka 和 franka_ros 以避免冲突：
 ```bash
 sudo apt remove "*libfranka*"
 ```
-## 构建libfranka
-
 要构建 libfranka，请从 Ubuntu 的包管理器安装以下依赖项：
 ```bash
 sudo apt install build-essential cmake git libpoco-dev libeigen3-dev
