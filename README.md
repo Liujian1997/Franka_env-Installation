@@ -138,7 +138,7 @@ source devel/setup.sh
 ```
 配置成功测试：（注：运行前先运行`source devel/setup.sh`避免出现以下错误，可以加到环境变量里）
 
-![](/img/微信图片_20240711203743.png)
+<!-- ![](img/微信图片_20240711203743.png) -->
 
 ```bash
 roslaunch panda_moveit_config demo.launch
