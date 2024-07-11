@@ -45,15 +45,14 @@ export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
 > sudo apt remove robotpkg-py3*-pinocchio
 > ```
 >
-> ![](https://github.com/Liujian1997/Franka_env-Installation/blob/main/img/Snipaste_2024-07-11_15-32-31.png)
+> ![](img/Snipaste_2024-07-11_15-32-31.png)
 > 
 > 重新安装通过，会自动安装3.8
 >
-> ![](https://github.com/Liujian1997/Franka_env-Installation/blob/main/img/Snipaste_2024-07-11_15-41-55.png)
+> ![](img/Snipaste_2024-07-11_15-41-55.png)
 > 
 ## 版本兼容
 
-<!-- ![](https://github.com/Liujian1997/Franka_env-Installation/blob/main/img/Snipaste_2024-07-11_12-21-44.png) -->
 ![](img/Snipaste_2024-07-11_12-21-44.png)
 
 ## 从源代码构建
