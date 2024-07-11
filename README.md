@@ -53,7 +53,8 @@ export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
 > 
 ## 版本兼容
 
-![](https://github.com/Liujian1997/Franka_env-Installation/blob/main/img/Snipaste_2024-07-11_12-21-44.png)
+<!-- ![](https://github.com/Liujian1997/Franka_env-Installation/blob/main/img/Snipaste_2024-07-11_12-21-44.png) -->
+![](img/Snipaste_2024-07-11_12-21-44.png)
 
 ## 从源代码构建
 
