@@ -51,8 +51,8 @@ cmake --build .
 
 然后从 GitHub 克隆 franka_ros 和 Moveit 存储库：
 ```bash
-cd ../src
-git clone --recursive https://github.com/frankaemika/franka_ros src/franka_ros # franka_ros
+cd ../../src
+git clone --recursive https://github.com/frankaemika/franka_ros # franka_ros
 git clone https://github.com/moveit/moveit_tutorials.git -b master # Moveit
 git clone https://github.com/moveit/panda_moveit_config.git -b noetic-devel # Moveit
 # 如果有其他需要编译的放在这一起编译，也可以单独编译，我们这里同时下载相机的存储库，不需要可以不下载
@@ -61,12 +61,14 @@ git clone https://github.com/m-tartari/realsense_gazebo_plugin.git # Camera plug
 ```
 默认情况下，这将检出最新版本的 franka_ros，如果要构建特定版本 franka_ros，请查看相应的 Git 标签：
 ```bash
+cd franka_ros
 git checkout <version>
 ```
 安装任何缺少的依赖项并构建包：（注意：以下命令中注意将 /path/to/libfranka/build 替换成自己的 libfranka build 构建路径。）
 ```bash
+cd /your path/catkin_ws
 rosdep install --from-paths src --ignore-src --rosdistro noetic -y --skip-keys libfranka
-catkin_make -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=/path/to/libfranka/build  
+catkin_make -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=/path/to/libfranka/build  # 注意修改路径
 source devel/setup.sh
 ```
 
