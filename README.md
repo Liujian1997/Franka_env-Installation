@@ -38,7 +38,9 @@ sudo apt update
 ```
 直接使用以下指令安装pinocchio
 ```bash
-sudo apt install -qqy robotpkg-py3*-pinocchio
+# sudo apt install -qqy robotpkg-py3*-pinocchio 
+# 注意：可能出现版本对应不上
+sudo apt install robotpkg-py38-pinocchio=2.7.0 robotpkg-pinocchio=2.7.0 robotpkg-py38-eigenpy=3.5.0
 ```
 设置环境变量`vim ~/.bashrc`
 ```bash
@@ -60,7 +62,13 @@ export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
 > 重新安装通过，会自动安装3.8
 >
 > ![](img/Snipaste_2024-07-11_15-41-55.png)
-> 
+>
+> 会报错！！！！！！！！！！！！！！！！！！！！！
+>
+> ```bash
+> sudo apt install robotpkg-py38-pinocchio=2.7.0 robotpkg-pinocchio=2.7.0 robotpkg-py38-eigenpy=3.5.0
+> ```
+
 ## 版本兼容
 
 ![](img/Snipaste_2024-07-11_12-21-44.png)
@@ -86,7 +94,7 @@ catkin_init_workspace src
 然后，通过 libfranka 从 GitHub 克隆来下载源代码：
 
 ```bash
-git clone --recursive https://github.com/frankaemika/libfranka # only for panda
+git clone --recursive https://github.com/frankaemika/libfranka --branch 0.8.0 # only for panda
 cd libfranka
 ```
 
@@ -127,6 +135,15 @@ cd /your path/catkin_ws
 rosdep install --from-paths src --ignore-src --rosdistro noetic -y --skip-keys libfranka
 catkin_make -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=/path/to/libfranka/build  # 注意修改路径
 source devel/setup.sh
+```
+配置成功测试：（注：运行前先运行`source devel/setup.sh`避免出现以下错误）
+
+![](img/微信图片_20240711203743.png)
+
+```bash
+roslaunch panda_moveit_config demo.launch`
+# 另起一个终端
+rosrun moveit_tutorials move_group_python_interface_tutorial.py
 ```
 
 ## 如需安装RT内核
