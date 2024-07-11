@@ -40,7 +40,7 @@ export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
 ```
 更新环境变量`source ~/.bashrc`
 > Test：卸载后安装通过
-> ![]()
+> ![](https://github.com/Liujian1997/Franka_env-Installation/blob/main/img/Snipaste_2024-07-11_15-32-31.png)
 > ```bash
 > sudo apt remove robotpkg-py3*-pinocchio
 > ```
