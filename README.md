@@ -9,7 +9,7 @@
   - [构建ROS包和Moveit包](#构建ros包和moveit包)
   - [如需安装RT内核](#如需安装rt内核)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+<!-- <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small> -->
 
 ## 参考链接
 - [ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
