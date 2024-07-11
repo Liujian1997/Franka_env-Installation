@@ -14,7 +14,7 @@
 - [ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
 - [Franka FCI 中文版](https://franka.cn/FCI/overview.html)
 - [Moveit Noetic](https://moveit.github.io/moveit_tutorials/doc/getting_started/getting_started.html#)
-- [Pinocchio](https://stack-of-tasks.github.io/pinocchio/download.html) 安装可以参考
+- [Pinocchio](https://stack-of-tasks.github.io/pinocchio/download.html)
 
 ## Pinocchio安装
 安装依赖
