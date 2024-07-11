@@ -1,5 +1,50 @@
 # Franka环境配置
-以下环境配置均基于[ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)，机械臂基于[Franka Emika Panda](https://github.com/Liujian1997/Franka_env-Installation/Franka_Emika_Panda_Instruction_Handbook_CN.pdf)
+以下环境配置均基于[ROS Noetic (Ubuntu版本)](https://wiki.ros.org/noetic/Installation/Ubuntu)，机械臂基于[Franka Emika Panda](https://github.com/Liujian1997/Franka_env-Installation/Franka_Emika_Panda_Instruction_Handbook_CN.pdf)
+## 参考链接
+- [ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
+- [Franka FCI 中文版](https://franka.cn/FCI/overview.html)
+- [Moveit Noetic](https://moveit.github.io/moveit_tutorials/doc/getting_started/getting_started.html#)
+- [Pinocchio](https://stack-of-tasks.github.io/pinocchio/download.html) 安装可以参考
+
+## Pinocchio安装
+安装依赖
+```bash
+sudo apt install -qqy lsb-release curl
+```
+系统中注册 robotpkg
+```bash
+sudo mkdir -p /etc/apt/keyrings
+ curl http://robotpkg.openrobots.org/packages/debian/robotpkg.asc \
+     | sudo tee /etc/apt/keyrings/robotpkg.asc
+```
+把 robotpkg 添加到apt源码库中
+```bash
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/robotpkg.asc] http://robotpkg.openrobots.org/packages/debian/pub $(lsb_release -cs) robotpkg" \
+    | sudo tee /etc/apt/sources.list.d/robotpkg.list
+```
+更新软件列表
+```bash
+sudo apt update
+```
+直接使用以下指令安装pinocchio
+```bash
+sudo apt install -qqy robotpkg-py3*-pinocchio
+```
+设置环境变量`vim ~/.bashrc`
+```bash
+export PATH=/opt/openrobots/bin:$PATH
+export PKG_CONFIG_PATH=/opt/openrobots/lib/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=/opt/openrobots/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=/opt/openrobots/lib/python3.10/site-packages:$PYTHONPATH # Adapt your desired python version here
+export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
+```
+更新环境变量`source ~/.bashrc`
+> Test：卸载后安装通过
+> ![]()
+> ```bash
+> sudo apt remove robotpkg-py3*-pinocchio
+> ```
+> 重新安装通过，会自动安装3.8
 ## 版本兼容
 
 ![](https://github.com/Liujian1997/Franka_env-Installation/blob/main/img/Snipaste_2024-07-11_12-21-44.png)
@@ -10,7 +55,6 @@
 ```bash
 sudo apt remove "*libfranka*"
 ```
-
 ## 构建libfranka
 
 要构建 libfranka，请从 Ubuntu 的包管理器安装以下依赖项：
