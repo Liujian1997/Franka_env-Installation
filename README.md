@@ -7,10 +7,10 @@
   - [构建libfranka](#构建libfranka)
   - [构建ROS包和Moveit包](#构建ros包和moveit包)
   - [如需安装RT内核](#如需安装rt内核)
-    - [Tips：](#tips)
-      - [实体通信：](#实体通信)
-      - [服务器下多个Gazebo一起调试](#服务器下多个gazebo一起调试)
-      - [ROS节点通信（分布式）](#ros节点通信分布式)
+  - [Tips：](#tips)
+    - [实体通信：](#实体通信)
+    - [服务器下多个Gazebo一起调试](#服务器下多个gazebo一起调试)
+    - [ROS节点通信（分布式）](#ros节点通信分布式)
 
 <!-- <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small> -->
 
@@ -154,15 +154,15 @@ rosrun moveit_tutorials move_group_python_interface_tutorial.py
 参考[链接](https://franka.cn/FCI/installation_linux.html#setting-up-the-real-time-kernel)
 
 ---
-### Tips：
-#### 实体通信：
+## Tips：
+### 实体通信：
 进入 `libfranka/build/examples`
 ```bash
 ./communication_test Arm_IP # 替换为机器人IP
 ```
 如果测过不通过则不能进行下一步
 
-#### 服务器下多个Gazebo一起调试
+### 服务器下多个Gazebo一起调试
 开启不同URI的ROS MASTER
 ```bash
 roscore -p YOUR_Port # 不同用户设置不同端口号，默认为11311
@@ -172,7 +172,7 @@ roscore -p YOUR_Port # 不同用户设置不同端口号，默认为11311
 export ROS_MASTER_URI='http://localhost:YOUR_Port' ## 替换自己的端口号
 export GAZEBO_MASTER_URI=http://localhost:YOUR_Gazebo_Port ## 与ros master类似,重新设置，默认在地址为11345，多人时会冲突
 ```
-#### ROS节点通信（分布式）
+### ROS节点通信（分布式）
 在[上一步](#服务器下多个gazebo一起调试)的基础上替换IP，前提是相互之间**可以`Ping`通**。
 
 **主机**
