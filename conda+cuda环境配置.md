@@ -4,6 +4,7 @@
   - [Conda安装](#conda安装)
   - [无sudo权限安装Cuda](#无sudo权限安装cuda)
   - [安装Cudnn](#安装cudnn)
+  - [修改hugging face的模型默认下载目录](#修改hugging-face的模型默认下载目录)
 ## Conda安装
 参考[Anaconda3](https://docs.anaconda.com/anaconda/install/linux/)
 
@@ -94,4 +95,16 @@ chmod a+r /home/guest/workspace/cuda-12.1/include/cudnn*   /home/guest/workspace
 ```bash
 nvcc -V # 检查cuda版本
 cat /home/guest/workspace/cuda-12.1/include/cudnn_version.h | grep CUDNN_MAJOR -A 2 # 检查Cudnn版本
+```
+
+## 修改hugging face的模型默认下载目录
+在 `vim ~/.bashrc` 加上：
+```bash
+export HF_HOME="目标地址"
+```
+参考[huggingface](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables)
+
+下载设置：
+```bash
+export HF_ENDPOINT=https://hf-mirror.com
 ```
