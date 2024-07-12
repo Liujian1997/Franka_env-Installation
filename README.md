@@ -137,7 +137,7 @@ git checkout <version>
 ```bash
 cd /your path/catkin_ws
 rosdep install --from-paths src --ignore-src --rosdistro noetic -y --skip-keys libfranka
-catkin_make -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=/path/to/libfranka/build  # 注意修改路径
+catkin_make -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=/path/to/libfranka/build  # 注意修改路径，使用绝对路径
 source devel/setup.sh
 ```
 配置成功测试：（注：运行前先运行`source devel/setup.sh`避免出现以下错误，可以加到环境变量里）
