@@ -153,6 +153,24 @@ rosrun moveit_tutorials move_group_python_interface_tutorial.py
 ## 如需安装RT内核
 参考[链接](https://franka.cn/FCI/installation_linux.html#setting-up-the-real-time-kernel)
 
+注意：`PREEMPT_RT` 内核不支持 NVIDIA 二进制驱动程序。
+
+安装必要的依赖项：
+```bash
+sudo apt-get install build-essential bc curl ca-certificates gnupg2 libssl-dev lsb-release libelf-dev bison flex dwarves zstd libncurses-dev
+```
+对于使用内核版本 5.9.1 测试通过的 Ubuntu 20.04：
+```bash
+curl -SLO https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.9.1.tar.xz
+curl -SLO https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.9.1.tar.sign
+curl -SLO https://www.kernel.org/pub/linux/kernel/projects/rt/5.9/patch-5.9.1-rt20.patch.xz
+curl -SLO https://www.kernel.org/pub/linux/kernel/projects/rt/5.9/patch-5.9.1-rt20.patch.sign
+```
+解压：
+```bash
+xz -d *.xz
+```
+
 ---
 ## Tips：
 ### 实体通信：
