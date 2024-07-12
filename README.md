@@ -170,6 +170,93 @@ curl -SLO https://www.kernel.org/pub/linux/kernel/projects/rt/5.9/patch-5.9.1-rt
 ```bash
 xz -d *.xz
 ```
+验证文件完整性
+```bash
+gpg2 --verify linux-*.tar.sign
+gpg2 --verify patch-*.patch.sign
+```
+获取公钥
+```bash
+gpg2  --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 6092693E # 注意替换公钥
+gpg2 --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2872E4CC # 注意替换公钥
+```
+如图所示对应
+![](img/Snipaste_2024-07-12_13-06-06.png)
+
+重新验证文件完整性
+```bash
+gpg2 --verify linux-*.tar.sign
+gpg2 --verify patch-*.patch.sign
+```
+如图所示则验证通过
+
+![](img/Snipaste_2024-07-12_13-08-33.png)
+
+编译内核
+提取源代码并应用补丁
+```bash
+tar xf linux-*.tar
+cd linux-*/
+patch -p1 < ../patch-*.patch
+```
+接下来复制当前启动的内核配置作为新实时内核的默认配置：
+
+```bash
+cp -v /boot/config-$(uname -r) .config
+```
+
+现在可以使用此配置作为默认配置来配置构建：
+```bash
+make olddefconfig
+make menuconfig # 会出界面
+```
+可以在其中配置抢占模型。使用箭头键导航到 `General Setup` > `Preemption Model` 并选择 `Fully Preemptible Kernel (Real-Time)` 。
+
+之后导航到 `Cryptographic API` > `Certificates for signature checking` （在列表的最底部）> `Provide system-wide ring of trusted keys` > `Additional X.509 keys for default system keyring`
+
+从提示符中移除 “`debian/canonical-certs.pem`”，然后按OK。将此配置保存到 `.config` 并退出 `TUI`。我们建议将其他选项保留为默认值。
+
+之后，就可以编译内核了。由于这是一个漫长的过程，请将多线程选项 -j 设置为 CPU 核心数量，也可以直接使用下面的命令：
+
+```bash
+make -j$(nproc) deb-pkg
+```
+
+最后，已准备好安装新创建的包。确切的名称取决于环境，但要查找的是不带 `dbg` 后缀的 `headers` 和 `images` 包。然后安装：（提示：如果编译结束后，给内核打 `deb` 格式包的时候报错：`recipe for traget 'deb-pkg' failed.` 则去到现在编译这个目录下 `ctrl+h` 显示隐藏文件，找到并且修改 `.config` 文件，把 `CONFIG_MODULE_SIG_ALL`、`CONFIG_MODULE_SIG_KEY`、`CONFIG_SYSTEM_TRUSTED_KEYS` 三项注释掉，编译时系统会自动生成一次性密钥来加密，把 `CONFIG_DEBUG_INFO=y` 去掉，不然新内核带巨量 debug 信息占用硬盘磁盘空间。然后重新运行 `make -j$(nproc) deb-pkg` 。）
+
+```bash
+sudo dpkg -i ../linux-headers-*.deb ../linux-image-*.deb # 有NVIDIA驱动则会在这一步报错
+```
+
+![](img/Snipaste_2024-07-12_14-37-06.png)
+
+验证内核
+重新启动系统。启动时按住 `shift` 键。 `Grub` 启动菜单选择 `Ubuntu的高级选项` ，然后选择 `Ubuntu, Linux 5.9.1-rt20`
+
+![](img/微信图片_20240712172535.jpg)
+
+![](img/微信图片_20240712172543.jpg)
+
+现在应该允许选择新安装的内核。
+
+选好启动项登录成功后，如果要查看当前正在使用的是不是前面步骤安装的实时内核，请查看 `uname -a` 命令的输出。它应该包含选择的 `PREEMPT RT` 字符串和版本号。此外， `/sys/kernel/realtime` 应该存在，并包含数字 `1`。
+
+在安装 PREEMPT_RT 内核并成功运行后，添加一个名为 realtime 的组 ，并将控制的机器人的用户添加到该组中：
+```bash
+sudo addgroup realtime
+sudo usermod -a -G realtime $(whoami)
+```
+然后，将以下限制添加到在 `/etc/security/limits.conf` 文件中的 realtime 组
+```bash
+@realtime soft rtprio 99
+@realtime soft priority 99
+@realtime soft memlock 102400
+@realtime hard rtprio 99
+@realtime hard priority 99
+@realtime hard memlock 102400
+```
+
+ssh使用root连接时出现 `Access denied` ，将用户名改成 `pc` 即可。（根据自己名字修改）
 
 ---
 ## Tips：
