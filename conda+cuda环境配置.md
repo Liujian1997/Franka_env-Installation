@@ -1,6 +1,9 @@
 # Conda+Cuda（无sudo权限）环境配置
 基于Ubuntu 22.04
-
+- [Conda+Cuda（无sudo权限）环境配置](#condacuda无sudo权限环境配置)
+  - [Conda安装](#conda安装)
+  - [无sudo权限安装Cuda](#无sudo权限安装cuda)
+  - [安装Cudnn](#安装cudnn)
 ## Conda安装
 参考[Anaconda3](https://docs.anaconda.com/anaconda/install/linux/)
 
@@ -90,5 +93,5 @@ chmod a+r /home/guest/workspace/cuda-12.1/include/cudnn*   /home/guest/workspace
 检查是否安装成功：
 ```bash
 nvcc -V # 检查cuda版本
-cat /home/guest/workspace/cuda-12.1/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+cat /home/guest/workspace/cuda-12.1/include/cudnn_version.h | grep CUDNN_MAJOR -A 2 # 检查Cudnn版本
 ```
