@@ -22,6 +22,13 @@ bash Anaconda3-2023.09-0-Linux-x86_64.sh
 
 下一步是否初始化，直接 `yes` ，然后激活 `base` 环境就可以了。
 
+如果还是不能激活 `base` 环境：
+```bash
+# Replace <PATH_TO_CONDA> with the path to your conda install
+source <PATH_TO_CONDA>/bin/activate # 替换成自己的conda安装目录
+conda init
+```
+ 
 ---
 
 ## 无sudo权限安装Cuda
