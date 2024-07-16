@@ -5,6 +5,7 @@
   - [无sudo权限安装Cuda](#无sudo权限安装cuda)
   - [安装Cudnn](#安装cudnn)
   - [修改hugging face的模型默认下载目录](#修改hugging-face的模型默认下载目录)
+  - [pip报以下错误：](#pip报以下错误)
 ## Conda安装
 参考[Anaconda3](https://docs.anaconda.com/anaconda/install/linux/)
 
@@ -115,3 +116,13 @@ export HF_HOME="目标地址"
 ```bash
 export HF_ENDPOINT=https://hf-mirror.com
 ```
+
+## pip报以下错误：
+
+![](img/微信图片_20240716193324.png)
+
+```bash
+pip config set global.cache-dir "/data/guest_workspace/cache/pipcache" # 这个不确定管用
+export TMPDIR='/data/guest_workspace/tmpspace' # 这个管用
+```
+
