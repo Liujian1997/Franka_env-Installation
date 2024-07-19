@@ -1,0 +1,15 @@
+[2024-19-07 16:07:41] - DEBUG: This is a debug message
+[2024-19-07 16:07:41] - INFO: This is an info message
+[2024-19-07 16:07:41] - WARNING: This is a warning message
+[2024-19-07 16:07:41] - ERROR: This is an error message
+[2024-19-07 16:07:41] - CRITICAL: This is a critical message
+[2024-19-07 16:07:49] - DEBUG: This is a debug message
+[2024-19-07 16:07:49] - INFO: This is an info message
+[2024-19-07 16:07:49] - WARNING: This is a warning message
+[2024-19-07 16:07:49] - ERROR: This is an error message
+[2024-19-07 16:07:49] - CRITICAL: This is a critical message
+[2024-19-07 16:08:00] - DEBUG: This is a debug message
+[2024-19-07 16:08:00] - INFO: This is an info message
+[2024-19-07 16:08:00] - WARNING: This is a warning message
+[2024-19-07 16:08:00] - ERROR: This is an error message
+[2024-19-07 16:08:00] - CRITICAL: This is a critical message

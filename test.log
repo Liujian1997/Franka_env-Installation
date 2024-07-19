@@ -1,0 +1,10 @@
+19-07-2024 15:48:43 root:DEBUG:This is a debug message
+19-07-2024 15:48:43 root:INFO:This is an info message
+19-07-2024 15:48:43 root:WARNING:This is a warning message
+19-07-2024 15:48:43 root:ERROR:This is an error message
+19-07-2024 15:48:43 root:CRITICAL:This is a critical message
+19-07-2024 15:54:23 root:DEBUG:This is a debug message
+19-07-2024 15:54:23 root:INFO:This is an info message
+19-07-2024 15:54:23 root:WARNING:This is a warning message
+19-07-2024 15:54:23 root:ERROR:This is an error message
+19-07-2024 15:54:23 root:CRITICAL:This is a critical message
