@@ -1,42 +1,15 @@
-import logging
-import argparse
-import datetime
-import os
+import requests
 
-import logging
-def logger_init(log_file_name='monitor',
-                log_level=logging.DEBUG,
-                log_dir='./logs/',
-                only_file=False):
-     # 指定路径
-     if not os.path.exists(log_dir):
-          os.makedirs(log_dir)
+# 定义请求的 URL
+url = 'http://192.168.1.220:80'  # 请替换为实际的 URL
 
-     log_path = os.path.join(log_dir, log_file_name + '_' + str(datetime.datetime.now())[:10] + '.txt')
-     formatter = '[%(asctime)s] - %(levelname)s: %(message)s'
-     if only_file:
-          logging.basicConfig(filename=log_path,
-                              level=log_level,
-                              format=formatter,
-                              datefmt='%Y-%d-%m %H:%M:%S')
-     else:
-          logging.basicConfig(level=log_level,
-                              format=formatter,
-                              datefmt='%Y-%d-%m %H:%M:%S',
-                              handlers=[logging.FileHandler(log_path),
-                                        logging.StreamHandler()]
-                              )
+# 定义要发送的数据（字典形式）
+data = {
+    'command': True,
+}
 
-# Usage
-if __name__ == '__main__':
-     logger_init()
+# 发送 POST 请求
+response = requests.post(url, data=data)
 
-     logging.debug('This is a debug message')
-
-     logging.info('This is an info message')
-
-     logging.warning('This is a warning message')
-
-     logging.error('This is an error message')
-
-     logging.critical('This is a critical message')
+# 打印响应内容
+print(response.text)
