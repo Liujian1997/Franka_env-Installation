@@ -263,3 +263,20 @@ In __exit__()
 ```
 
 实际上，在with后面的代码块抛出任何异常时，__exit__()方法被执行。正如例子所示，异常抛出时，与之关联的type，value和stack trace传给__exit__()方法，因此抛出的ZeroDivisionError异常被打印出来了。开发库时，清理资源，关闭文件等等操作，都可以放在__exit__方法当中。
+
+## 终端命令后台运行
+
+第一种
+
+```bash
+nohup command &
+```
+
+第二种
+
+```bash
+screen -S session_name
+command
+# 按下 Ctrl + A，然后按 D 断开会话
+screen -r session_name  # 重新连接会话
+```
