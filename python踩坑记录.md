@@ -221,3 +221,45 @@ mutex.release()
 with mutex：
     # 这里编写代码能保证同一时刻只能有一个线程去操作, 对共享数据进行锁定
 ```
+
+## python __enter__ 与 __exit__的作用
+
+如果不用with语句，代码如下：
+
+```python
+file = open("/tmp/foo.txt")
+data = file.read()
+file.close()
+```
+
+with所求值的对象必须有一个__enter__()方法，一个__exit__()方法:
+
+```python
+#!/usr/bin/env python
+# with_example01.py
+
+class Sample:
+    def __enter__(self):
+        print "In __enter__()"
+        return "Foo"
+
+    def __exit__(self, type, value, trace):
+        print "In __exit__()"
+
+
+def get_sample():
+    return Sample()
+
+
+with get_sample() as sample:
+    print "sample:", sample
+
+
+#output
+bash-3.2$ ./with_example01.py
+In __enter__()
+sample: Foo
+In __exit__()
+```
+
+实际上，在with后面的代码块抛出任何异常时，__exit__()方法被执行。正如例子所示，异常抛出时，与之关联的type，value和stack trace传给__exit__()方法，因此抛出的ZeroDivisionError异常被打印出来了。开发库时，清理资源，关闭文件等等操作，都可以放在__exit__方法当中。
