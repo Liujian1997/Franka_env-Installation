@@ -37,4 +37,6 @@ pip install absl-py==1.4.0 anyio==3.7.1 apache-beam==2.49.0 appdirs==1.4.4 array
 git clone https://github.com/kvablack/dlimp@fba663b10858793d35f9a0fdbe8f0d51906c8c90
 cd dlimp
 python setup.py install 或者 pip install .
+# 或者
+pip install dlimp @ git+https://github.com/kvablack/dlimp@fba663b10858793d35f9a0fdbe8f0d51906c8c90
 ```
