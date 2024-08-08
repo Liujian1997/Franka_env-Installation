@@ -40,3 +40,38 @@ python setup.py install 或者 pip install .
 # 或者
 pip install dlimp @ git+https://github.com/kvablack/dlimp@fba663b10858793d35f9a0fdbe8f0d51906c8c90
 ```
+
+## 巨坑
+
+```python
+builder = tfds.builder(FLAGS.dataset, data_dir=FLAGS.data_dir)
+```
+
+上述代码中的数据集加载方式需要谷歌令牌，否则会访问不到，即便下已经下载了数据集。
+
+后续：让它冷静一下，就好了。会跳过这个步骤。
+
+## bug
+
+> openvla 微调版本需要python=3.10，Interface >= 3.8
+
+![alt text](img/image.png)
+
+```Python
+if not dist.is_initialized():
+     dist.init_process_group(backend='nccl')
+# Wrap VLA in PyTorch DDP Wrapper for Multi-GPU Training
+vla = DDP(vla, device_ids=[device_id], find_unused_parameters=True, gradient_as_bucket_view=True)
+```
+
+168行左右修改
+
+![alt text](img/Snipaste_2024-08-08_14-07-32.png)
+
+注意：这里不要使用数据预处理环境中的 `dlimp`, 使用 `https://github.com/openvla/openvla/blob/main/pyproject.toml` 中的 `dlimp`
+
+```bash
+# 这个pkg依赖TensorFlow 2.15.0，使用之前的环境会冲突
+pip install git+https://github.com/moojink/dlimp_openvla
+```
+

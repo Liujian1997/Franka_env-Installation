@@ -280,3 +280,22 @@ command
 # 按下 Ctrl + A，然后按 D 断开会话
 screen -r session_name  # 重新连接会话
 ```
+
+## wandb离线使用
+
+在Python文件中设置wandb为offline模式:
+
+```Python
+import os
+os.environ["WANDB_MODE"]="offline"
+```
+
+从服务器复制wandb log到有网络的PC
+
+在有网络的PC上同步wandb log到自己的wandb官网账号上:
+
+- 先登陆 wandb login (接下来输入自己账号里面的API Key)
+
+- 再同步 wandb sync ${你的wandb log文件夹目录}
+
+这时显示Syncing: `https://wandb.ai/thucz/my_first_project/runs/...` done代表同步成功，在这个链接 `https://wandb.ai/thucz/my_first_project/runs/...` 里面可以看到自己的log，请注意实际情况是每个人的log链接都不一样，因为是挂在自己的账号下的。
