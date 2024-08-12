@@ -304,6 +304,8 @@ os.environ["WANDB_MODE"]="offline"
 
 https://docs.wandb.ai/ref/cli/wandb-sync
 
+https://www.shaohanyun.top/posts/tech/hpo/
+
 ```bash
 wandb sync [./wandb/offline_**] -e [entity] -p [project_name]
 # 同步状态查询
