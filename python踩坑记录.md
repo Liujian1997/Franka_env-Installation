@@ -299,3 +299,32 @@ os.environ["WANDB_MODE"]="offline"
 - 再同步 wandb sync ${你的wandb log文件夹目录}
 
 这时显示Syncing: `https://wandb.ai/thucz/my_first_project/runs/...` done代表同步成功，在这个链接 `https://wandb.ai/thucz/my_first_project/runs/...` 里面可以看到自己的log，请注意实际情况是每个人的log链接都不一样，因为是挂在自己的账号下的。
+
+### Tips:
+
+https://docs.wandb.ai/ref/cli/wandb-sync
+
+```bash
+wandb sync [./wandb/offline_**] -e [entity] -p [project_name]
+# 同步状态查询
+[In]:wandb sync
+[out]:
+    wandb: Number of runs to be synced: 3
+    wandb:   wandb/offline-run-20221220_170720-3d49bs3p
+    wandb:   wandb/offline-run-20221220_170730-1d6udhxa
+    wandb:   wandb/offline-run-20221220_170740-1grmfhy0
+    wandb: NOTE: use wandb sync --sync-all to sync 3 unsynced runs from local directory.
+
+# 同步所有runs(对应到不同的project)
+wandb sync --sync-all
+
+# 同步单次run
+wandb sync [path of offline-run-2022***]
+
+# 删除已经同步的runs
+wandb sync --clean
+
+# 同步run至project
+wandb sync --sync-all -p [project_name]
+
+```
