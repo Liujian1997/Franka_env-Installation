@@ -302,9 +302,9 @@ os.environ["WANDB_MODE"]="offline"
 
 ### Tips:
 
-https://docs.wandb.ai/ref/cli/wandb-sync
+[https://docs.wandb.ai/ref/cli/wandb-sync](https://docs.wandb.ai/ref/cli/wandb-sync)
 
-https://www.shaohanyun.top/posts/tech/hpo/
+[https://www.shaohanyun.top/posts/tech/hpo/](https://www.shaohanyun.top/posts/tech/hpo/)
 
 ```bash
 wandb sync [./wandb/offline_**] -e [entity] -p [project_name]
