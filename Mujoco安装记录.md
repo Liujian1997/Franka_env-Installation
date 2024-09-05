@@ -42,3 +42,8 @@ Press Enter to exit ...
 https://github.com/real-stanford/diffusion_policy?tab=readme-ov-file#%EF%B8%8F-simulation
 
 https://blog.csdn.net/qq_47997583/article/details/125400418
+
+```shell
+gedit ~/.bashrc
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia 
+```
