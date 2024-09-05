@@ -27,7 +27,7 @@ source ~/.bashrc
 cd ~/.mujoco/mujoco210/bin
 ./simulate ../model/humanoid.xml
 
-# Error
+# Error 因为使用SSH连接的服务器没有图形化界面导致，实际已经可以使用，参考：https://zhuanlan.zhihu.com/p/486957504 评论区
 MuJoCo Pro version 2.10
 ERROR: could not initialize GLFW
 
