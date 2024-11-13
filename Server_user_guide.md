@@ -40,7 +40,8 @@
 
 7. 环境配置：`Conda/Cuda` 都安装了，请使用 `Conda/Cuda` 环境，不要使用系统环境，因为系统环境可能存在版本冲突，导致程序无法运行。`Conda` 需要在设置以下环境变量，`cuda` 默认是非编译版本，如果需要用 `cuda` 编译，比如 `flash attention` 自行下载安装编译版本的 `cuda`，可以参考[之前的内容](./conda%2Bcuda环境配置.md)。
 
-> [!NOTE] 
+> [!NOTE]
+>
 > ```shell
 > # >>> conda initialize >>>
 > # !! Contents within this block are managed by 'conda init' !!
