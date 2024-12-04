@@ -15,7 +15,7 @@
 sudo apt install libosmesa6-dev libgl1-mesa-glx libglfw3 patchelf 
 mkdir ~/.mujoco
 cd ~/.mujoco
-wget https://github.com/deepmind/mujoco/releases/tag/2.1.0
+wget https://github.com/google-deepmind/mujoco/releases/download/2.1.0/mujoco210-linux-x86_64.tar.gz
 tar -zxvf mujoco210-linux-x86_64.tar.gz
 
 # Add to PATH
@@ -70,4 +70,27 @@ print(sim.data.qpos)
 #  -3.04253586e-04 -2.07559344e-04 -8.50646247e-05  1.11317030e-04
 #  -7.03465386e-05 -2.22862221e-05 -1.11317030e-04  7.03465386e-05
 #  -2.22862221e-05]
+```
+
+## 2. Mujoco注意事项
+
+设置 MUJOCO_GL 环境变量： 你可以通过设置 MUJOCO_GL 环境变量来选择不同的 OpenGL 后端。常见的选项有 osmesa（无头模式）、glfw、x11、glx 等。
+
+例如，使用 osmesa（无头模式）：
+
+```shell
+export MUJOCO_GL=osmesa
+```
+
+export MUJOCO_GL=osmesa
+
+```shell
+export MUJOCO_GL=glfw
+```
+
+将环境变量添加到 `.bashrc` 中以便每次启动时自动加载：
+
+```shell
+echo "export MUJOCO_GL=osmesa" >> ~/.bashrc
+source ~/.bashrc
 ```

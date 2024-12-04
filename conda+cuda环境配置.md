@@ -8,6 +8,7 @@
   - [安装Cudnn](#安装cudnn)
   - [修改hugging face的模型默认下载目录](#修改hugging-face的模型默认下载目录)
   - [pip报以下错误](#pip报以下错误)
+  - [Conda使用](#conda使用)
 
 ## Conda安装
 
@@ -155,4 +156,14 @@ export HF_ENDPOINT=https://hf-mirror.com
 ```bash
 pip config set global.cache-dir "/data/guest_workspace/cache/pipcache" # 这个不确定管用
 export TMPDIR='/data/guest_workspace/tmpspace' # 这个管用
+```
+
+## Conda使用
+
+Conda环境删除：
+
+```bash
+conda remove --name <env_name> --all
+
+rm -rf ~/.conda/envs/your_env_name
 ```
