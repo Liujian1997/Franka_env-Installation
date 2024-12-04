@@ -9,7 +9,7 @@
 
 ## Huggingface上传
 
-> [!TIPS]
+> [!TIP]
 > Huggingface 推荐使用 `huggingface-cli` 进行上传，Huggingface可能会弃用 `git-lfs`，Referecnce: [上传参考](https://hugging-face.cn/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads)和[Git 与 HTTP 范式区别](https://hugging-face.cn/docs/huggingface_hub/concepts/git_vs_http)
 
 创建Repo过于简单，略过
@@ -38,7 +38,7 @@ huggingface-cli upload_large_folder Username/RepoName path/to/your/model --repo-
 
 ## ModelScope上传
 
-> [!TIPS]
+> [!TIP]
 > ModelScope 上传速度还不错，9.4Mb/s
 > 创建Repo后，在 `README.md` 有写如何下载
 
