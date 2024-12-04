@@ -1,11 +1,43 @@
 # Huggingface和ModelScope上传
 
 - [Huggingface和ModelScope上传](#huggingface和modelscope上传)
+  - [无root安装git-lfs](#无root安装git-lfs)
   - [Huggingface上传](#huggingface上传)
   - [ModelScope上传](#modelscope上传)
   - [添加 model card 等信息](#添加-model-card-等信息)
 
 ---
+
+## 无root安装git-lfs
+
+下载
+
+```shell
+wget https://github.com/git-lfs/git-lfs/releases/download/v3.6.0/git-lfs-linux-amd64-v3.6.0.tar.gz
+```
+
+解压
+
+```shell
+tar -zxvf git-lfs-linux-amd64-v3.6.0.tar.gz
+```
+
+安装
+
+```shell
+# root权限
+sudo bash ./install.sh
+# 普通用户，修改install.sh文件中的prefix
+bash ./install.sh
+```
+
+添加环境变量
+
+```shell
+# 刚才修改的prefix目录后面加bin
+echo 'export PATH=/path/to/prefix/bin?:$PATH' >> ~/.bashrc
+source ~/.bashrc
+```
 
 ## Huggingface上传
 
