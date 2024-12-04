@@ -79,6 +79,8 @@ huggingface-cli upload_large_folder Username/RepoName path/to/your/model --repo-
 ```shell
 git lfs install
 git clone https://oauth2:xxxxxxxxxxxxxxxxxxx@www.modelscope.cn/datasets/UserName/RepoName.git
+# 如果是大文件
+git lfs clone https://oauth2:xxxxxxxxxxxxxxxxxxx@www.modelscope.cn/datasets/UserName/RepoName.git
 ```
 
 下载完成后，将模型文件放入 `RepoName` 文件夹中，然后上传
