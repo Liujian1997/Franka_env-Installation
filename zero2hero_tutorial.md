@@ -19,7 +19,7 @@
 
 ### 低配置参考
 
-![alt text](image.png)
+![alt text](img/server_apply.png)
 
 推荐第三个，申请教程如下：
 
