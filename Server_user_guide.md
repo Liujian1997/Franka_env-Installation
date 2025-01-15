@@ -4,6 +4,7 @@
   - [严禁事项](#严禁事项)
   - [使用方法](#使用方法)
   - [注意事项](#注意事项)
+  - [假期使用](#假期使用)
 
 ## 严禁事项
 
@@ -59,3 +60,30 @@
 > # <<< conda initialize <<
 > ```
 
+
+## 假期使用
+
+> [!NOTE]
+
+1. 登录跳板机（如果有其他方式），检查 SSH 服务的配置文件 /etc/ssh/sshd_config：
+
+```shell
+PasswordAuthentication yes  # 允许密码认证
+
+PubkeyAuthentication yes # 允许公钥认证
+
+```
+
+2. 重启 SSH 服务以应用更改：
+
+```shell
+service ssh restart
+```
+
+3. 登录指令：
+
+```shell
+# lqk@1.tcp.cpolar.cn:21805 跳板机的地址和端口
+# root@172.168.0.2 -p your_port  原来的登录地址和端口,172.168.0.2为万兆口，192.168.1.186为千兆口
+ssh -J lqk@1.tcp.cpolar.cn:21805 root@172.168.0.2 -p your_port
+```
