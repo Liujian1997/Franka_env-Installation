@@ -83,7 +83,7 @@ service ssh restart
 3. 登录指令：
 
 ```shell
-# lqk@1.tcp.cpolar.cn:21805 跳板机的地址和端口
+# lqk@1.tcp.cpolar.cn:xxx 跳板机的地址和端口,端口见群通知或者联系管理员：微信：Jane7089
 # root@172.168.0.2 -p your_port  原来的登录地址和端口,172.168.0.2为万兆口，192.168.1.186为千兆口
-ssh -J lqk@1.tcp.cpolar.cn:21805 root@172.168.0.2 -p your_port
+ssh -J lqk@1.tcp.cpolar.cn:xxx root@172.168.0.2 -p your_port
 ```
